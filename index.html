@@ -9,23 +9,24 @@
 
     <h1>MuseBot</h1>
 
-  <!-- Musea sprite image (idle/talking) -->
-    <img src="assets/musea-happy.png" alt="musea-idle" />
+    <div class="main-content">
 
-  <!-- Input field for user text -->
-   <label for="user-message">Ask Musea!</label>
-    <textarea id="user-message" name="text" rows="4" cols="40">Enter message</textarea>
+      <img id="musea-img" src="assets/musea-happy.png" alt="musea-idle" />
 
-  <!-- Button to send message -->
-    <button id="send-message">Send Message</button> 
+      <div class="chat-box">
+        <label for="user-message">Ask Musea!</label>
+        <textarea id="user-message" name="text" rows="4" cols="40">Enter message</textarea>
 
-  <!-- Div/section to display Musea's reply -->
-    <div id="chat-output">
-        <div class="bubble"></div>
+        <button id="send-message">Send Message</button> 
+        <div id="chat-output">Chat will appear here.</div>
+        </div>
+
+      </div>
+
+      
 
     </div>
 
-  <!-- Link to JavaScript file -->
     <script src="script.js"></script>
 
 </body>

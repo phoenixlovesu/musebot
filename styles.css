@@ -1,54 +1,74 @@
-/* Body styling (font, layout, background) */
 body {
   margin: 0;
   font-family: 'Press Start 2P', monospace;
   background-color: #1a1b2f;
   color: #ffffff;
-  text-align: center;
   padding: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh; 
+  min-height: 100vh;
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
+  font-size: 24px;
+  margin: 20px 0;
+  text-align: center;
 }
 
-/* Style for chatbot image (Musea) */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+}
+
 #musea-img {
   image-rendering: pixelated;
   width: 256px;
   height: 256px;
-  margin-bottom: 20px;
-  
 }
 
-/* Input box styling */
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 300px;
+}
+
 #user-message {
-    background-color: rgb(4, 196, 196);
-    color: white;
+  background-color: rgb(4, 196, 196);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
-/* Send button styling */
 #send-message {
-    background-color:rgb(211, 5, 230);
-    color: white;
-    cursor: pointer;
-    border-radius: 6px;
+  background-color: rgb(211, 5, 230);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
-.button:hover {
-    background-color: purple;
+#send-message:hover {
+  background-color: purple;
 }
 
-/* Reply text area styling */
 #chat-output {
-    color:#1a1b2f;
+  background: white;
+  color: #1a1b2f;
+  padding: 10px;
+  border-radius: 6px;
+  min-height: 100px;
 }
-
-/* Optional: transitions or sprite animation styles */
