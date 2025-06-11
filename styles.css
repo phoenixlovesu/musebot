@@ -1,0 +1,54 @@
+/* Body styling (font, layout, background) */
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #1a1b2f;
+  color: #ffffff;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style for chatbot image (Musea) */
+#musea-img {
+  image-rendering: pixelated;
+  width: 256px;
+  height: 256px;
+  margin-bottom: 20px;
+  
+}
+
+/* Input box styling */
+#user-message {
+    background-color: rgb(4, 196, 196);
+    color: white;
+}
+
+/* Send button styling */
+#send-message {
+    background-color:rgb(211, 5, 230);
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.button:hover {
+    background-color: purple;
+}
+
+/* Reply text area styling */
+#chat-output {
+    color:#1a1b2f;
+}
+
+/* Optional: transitions or sprite animation styles */
