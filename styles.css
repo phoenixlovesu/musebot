@@ -31,6 +31,8 @@ h1 {
   image-rendering: pixelated;
   width: 256px;
   height: 256px;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 .chat-box {
@@ -75,17 +77,14 @@ h1 {
 }
 
 @keyframes pulse {
-    0% {
-        box-shadow: 0 0 0px #ff87d1;
+    0%, 100% {
+        filter: drop-shadow(0 0 0px #ff87d1);
     }
     50% {
-        box-shadow: 0 0 20px #ff87d1;
-    }
-    100% {
-        box-shadow: 0 0 0px #ff87d1;
+        filter: drop-shadow(0 0 20px #ff87d1);
     }
 }
 
-.glowing {
-    animation: pulse 1.5s infinite;
+#musea-img.glowing {
+    animation: pulse 1.5s ease-in-out infinite;
 }
