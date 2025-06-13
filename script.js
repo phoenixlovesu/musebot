@@ -24,6 +24,13 @@ async function getMuseaResponse(userMessage) {
             body: JSON.stringify({ message: userMessage })
         });
 
+        // Check if response was successful
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || "Unknown server error");
+        }
+
+        // Parse response  JSON if successful
         const data = await response.json();    
         const museaReply = data.reply;           
 
@@ -31,7 +38,7 @@ async function getMuseaResponse(userMessage) {
         inputBox.value = ""; 
     } catch (error) {
         console.error("Error fetching Musea's reply:", error); 
-        chatOutput.innerHTML = "Musea had an error. Please try again later.";
+        chatOutput.innerHTML = `<strong>Musea:</strong> I'm having trouble thinking right now.`;
     }
 }
        
