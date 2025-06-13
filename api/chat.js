@@ -18,7 +18,7 @@ module.exports = async function handler(req, res) {
 
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-4o",
       messages: [{ role: "user", content: message }],
     });
 
@@ -28,5 +28,8 @@ module.exports = async function handler(req, res) {
   } catch (error) {
     console.error("OpenAI API error:", error);
     res.status(500).json({ error: "Failed to get response from OpenAI" });
+
+    // For debugging
+    res.status(500).json({ error: error.message || "Unknown error" });
   }
 };
