@@ -27,9 +27,7 @@ module.exports = async function handler(req, res) {
     res.status(200).json({ reply: museaReply });
   } catch (error) {
     console.error("OpenAI API error:", error);
-    res.status(500).json({ error: "Failed to get response from OpenAI" });
+    return res.status(500).json({ error: error.message || "Failed to get response from OpenAI" });
 
-    // For debugging
-    res.status(500).json({ error: error.message || "Unknown error" });
   }
 };
