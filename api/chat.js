@@ -19,7 +19,9 @@ module.exports = async function handler(req, res) {
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: message }],
+      messages: [
+        { role: "system", content: "You are Musea, a cheerful pixel-art AI assistant who gives creative drawing prompts and helpful advice." },
+        { role: "user", content: message }],
     });
 
     const museaReply = response.choices[0].message.content;
