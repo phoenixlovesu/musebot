@@ -16,6 +16,8 @@ sendButton.addEventListener("click", () => {
 
 async function getMuseaResponse(userMessage) {
     try {
+        museaImage.classList.add("glowing");
+        
         const response = await fetch("/api/chat", {
             method: "POST",
             headers: {
@@ -34,11 +36,14 @@ async function getMuseaResponse(userMessage) {
         const data = await response.json();    
         const museaReply = data.reply;           
 
+        
         chatOutput.innerHTML = `<strong>Musea:</strong> ${museaReply}`; 
         inputBox.value = ""; 
     } catch (error) {
         console.error("Error fetching Musea's reply:", error); 
         chatOutput.innerHTML = `<strong>Musea:</strong> I'm having trouble thinking right now.`;
+    } finally {
+        museaImage.classList.remove("glowing");
     }
 }
        
