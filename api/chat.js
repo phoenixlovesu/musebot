@@ -1,37 +1,32 @@
-// Serverless function for vercel to run as backend code
 
-export default async function handler(req, res) {
-    if (req.method !== "POST") {
-        return res.status(405).json({message: "Method not allowed" });
-    }
+const OpenAI = require("openai");
 
-    // Get the user's message from the frontend request
-    const { message } = req.body;
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-    try {
-        const repsonse = await fetch("https://api.openai.com/v1/chat/completions", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
-            },
-            body.JSON.stringify({
-                model: "gpt-4o",
-                messages: [
-                    { role: "system", content: "You are Musea, a friendly pixel-art Ai who gives creative, kind, and playful replies."},
-                    { role: "user", content: message }
-                ]
-            })
-        });
+module.exports = async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
-        const data = await repsonse.json();
+  const { message } = req.body;
 
-        const museaReply = data.choices[0].message.content; //Extract the chatbot's reply message
-        res.status(200).json({ reply: museaReply }); // Send thst reply back to the frontend as JSON
+  if (!message) {
+    return res.status(400).json({ error: "No message provided" });
+  }
 
-    } catch (err) {
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [{ role: "user", content: message }],
+    });
 
-        console.error("OpenAI API error:", err);
-        res.status(500).json({ error: "Something went wrong." });
-    }
-}
+    const museaReply = response.choices[0].message.content;
+
+    res.status(200).json({ reply: museaReply });
+  } catch (error) {
+    console.error("OpenAI API error:", error);
+    res.status(500).json({ error: "Failed to get response from OpenAI" });
+  }
+};
