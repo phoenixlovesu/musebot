@@ -1,7 +1,11 @@
 body {
   margin: 0;
+  background-image: url('assets/blinking-stars.gif'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color:#1a1b2f;
   font-family: 'Press Start 2P', monospace;
-  background-color: #1a1b2f;
   color: #ffffff;
   padding: 0;
   display: flex;
