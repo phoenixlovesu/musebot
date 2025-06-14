@@ -23,7 +23,7 @@ MuseBot is a pixel-art inspired AI chatbot assistant named Musea. She offers con
 
 ## Assets 
 
-- The Musea pixel art character was created by me using [Piskel](https://www.piskelapp.com)
+- The Musea pixel art character and background was created by me using [Piskel](https://www.piskelapp.com)
 
 ---
 
