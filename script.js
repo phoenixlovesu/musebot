@@ -51,6 +51,8 @@ async function getMuseaResponse(userMessage) {
         if (thinkingDiv) thinkingDiv.remove();
 
         chatOutput.innerHTML += `<div class="musea-reply"><strong>Musea:</strong> I'm having trouble thinking right now.</div>`;
+
+        chatOutput.scrollTop = chatOutput.scrollHeight;
     } finally {
         museaImage.classList.remove("glowing");
     }
