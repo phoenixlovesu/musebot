@@ -9,6 +9,10 @@ sendButton.addEventListener("click", () => {
 
     if (userMessage) {
 
+        if (chatOutput.innerText === "Chat will appear here.") {
+            chatOutput.innerHTML = "";
+        }
+
         chatOutput.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
         chatOutput.innerHTML += `<div id="thinking">Musea is thinking...</div>`; 
         getMuseaResponse(userMessage); 
