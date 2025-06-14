@@ -80,6 +80,11 @@ h1 {
   min-height: 100px;
 }
 
+.musea-reply {
+    color:aqua;
+    font-weight: bold;
+}
+
 @keyframes pulse {
     0%, 100% {
         filter: drop-shadow(0 0 0px #ff87d1);
@@ -92,3 +97,4 @@ h1 {
 #musea-img.glowing {
     animation: pulse 1.5s ease-in-out infinite;
 }
+

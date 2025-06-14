@@ -8,7 +8,9 @@ sendButton.addEventListener("click", () => {
     const userMessage = inputBox.value.trim(); 
 
     if (userMessage) {
-        chatOutput.innerHTML = "Musea is thinking..."; 
+
+        chatOutput.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+        chatOutput.innerHTML += `<div id="thinking">Musea is thinking...</div>`; 
         getMuseaResponse(userMessage); 
     }
 });
@@ -36,12 +38,19 @@ async function getMuseaResponse(userMessage) {
         const data = await response.json();    
         const museaReply = data.reply;           
 
-        
-        chatOutput.innerHTML = `<strong>Musea:</strong> ${museaReply}`; 
+        // Remove the "thinking" message
+        const thinkingDiv = document.getElementById("thinking");
+        if (thinkingDiv) thinkingDiv.remove();
+
+        chatOutput.innerHTML += `<div class="musea-reply"><strong>Musea:</strong> ${museaReply}</div>`; 
         inputBox.value = ""; 
     } catch (error) {
         console.error("Error fetching Musea's reply:", error); 
-        chatOutput.innerHTML = `<strong>Musea:</strong> I'm having trouble thinking right now.`;
+
+        const thinkingDiv = document.getElementById("thinking");
+        if (thinkingDiv) thinkingDiv.remove();
+
+        chatOutput.innerHTML += `<div class="musea-reply"><strong>Musea:</strong> I'm having trouble thinking right now.</div>`;
     } finally {
         museaImage.classList.remove("glowing");
     }
