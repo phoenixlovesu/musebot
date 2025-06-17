@@ -48,6 +48,9 @@ async function getMuseaResponse(userMessage) {
 
         chatOutput.innerHTML += `<div class="musea-reply"><strong>Musea:</strong> ${museaReply}</div>`; 
         inputBox.value = ""; 
+
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+        
     } catch (error) {
         console.error("Error fetching Musea's reply:", error); 
 
