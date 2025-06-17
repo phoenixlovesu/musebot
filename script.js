@@ -19,6 +19,13 @@ sendButton.addEventListener("click", () => {
     }
 });
 
+inputBox.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendButton.click();
+    }
+});
+
 
 async function getMuseaResponse(userMessage) {
     try {
@@ -50,7 +57,7 @@ async function getMuseaResponse(userMessage) {
         inputBox.value = ""; 
 
         chatOutput.scrollTop = chatOutput.scrollHeight;
-        
+
     } catch (error) {
         console.error("Error fetching Musea's reply:", error); 
 
